@@ -77,9 +77,9 @@ yum -y --enablerepo='*' clean all
 echo "==> Clear core files"
 rm -f /core*
 
-echo "==> Removing temporary files used to build box"
-rm -rf /tmp/*
-rm -rf /opt/local_files
+# echo "==> Removing temporary files used to build box"
+# rm -rf /tmp/*
+# rm -rf /opt/local_files
 
 echo "==> Rebuild RPM DB"
 rpmdb --rebuilddb
