@@ -21,6 +21,7 @@ echo  "Install Docker_dependency packages"
 # Install Docker_dependency packages
 mkdir -p /var/lib/docker
 cd /opt/local_files/docker_dependency
+rm -rf libtool-ltdl-2.4.2-21.el7_2.x86_64.rpm
 rpm -Uvh *.rpm
 
 echo  "Install Docker package"
