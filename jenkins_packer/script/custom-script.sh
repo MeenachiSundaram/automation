@@ -32,3 +32,18 @@ rpm -Uvh *.rpm
 echo "Copying 'docker-compose' 'docker-machine' & 'kubectl' and adding to PATH"
 #Copying 'docker-compose' 'docker-machine' & 'kubectl'
 cp /opt/local_files/bin_files/* /usr/bin/.
+
+echo "creating local_repo"
+yum install createrepo
+mkdir -p /local_repo/puppet4
+createrepo /local_repo
+
+echo "Enabling puppet Repository"
+sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+
+echo "Adding puppet4 packages and dependency to local_repo"
+yum install --downloadonly --downloaddir=/local_repo/puppet4 ntp puppetserver puppet-agent
+
+
+echo "Updating local_repo"
+createrepo --update /local_repo

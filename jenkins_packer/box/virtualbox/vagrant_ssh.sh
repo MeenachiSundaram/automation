@@ -17,8 +17,6 @@ gpgcheck=1
 gpgkey=https://yum.dockerproject.org/gpg
 EOF
 
-sudo mkdir /var/lib/docker
-
 sudo yum install --downloadonly --downloaddir=/vagrant/local_files/docker_dependency docker-engine
 
 sudo curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" > /vagrant/local_files/bin_files/docker-compose
