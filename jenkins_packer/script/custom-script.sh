@@ -34,7 +34,7 @@ echo "Copying 'docker-compose' 'docker-machine' & 'kubectl' and adding to PATH"
 cp /opt/local_files/bin_files/* /usr/bin/.
 
 echo "creating local_repo"
-yum install createrepo
+yum install createrepo -y
 mkdir -p /local_repo/puppet4
 createrepo /local_repo
 
