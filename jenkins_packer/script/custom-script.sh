@@ -44,6 +44,14 @@ sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
 echo "Adding puppet4 packages and dependency to local_repo"
 yum install --downloadonly --downloaddir=/local_repo/puppet4 ntp puppetserver puppet-agent
 
+echo "Adding Repo Entry"
+sudo tee /etc/yum.repos.d/local_repo.repo <<-'EOF'
+[local_repo]
+name=local Repository
+baseurl=file:///local_repo
+enabled=1
+gpgcheck=0
+EOF
 
 echo "Updating local_repo"
 createrepo --update /local_repo
